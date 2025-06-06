@@ -1,0 +1,23 @@
+<article class="card-client">
+    <header class="card-header">
+      <figure>
+        <img [src]="photoUrl" alt="Photo de {{ nom }}" class="client-photo" />
+      </figure>
+      <div>
+        <h2 class="client-name">{{ nom }}</h2>
+        <p class="client-poste">{{ poste }}</p>
+      </div>
+    </header>
+  
+    <section class="client-description">
+      <p>{{ description }}</p>
+    </section>
+  
+    <footer class="card-footer">
+      <address>
+        <p><strong>Email :</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>
+        <p><strong>Téléphone :</strong> <a href="tel:{{ telephone }}">{{ telephone }}</a></p>
+      </address>
+    </footer>
+  </article>
+  
