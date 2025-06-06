@@ -1,18 +1,32 @@
-<header>
-    <nav class="header-container">
-      <a routerLink="/" class="logo" aria-label="Accueil">
-        <img src="Logo.png" alt="Logo de l'entreprise" />
+<header class="bg-[#2C3E50] shadow-md">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
+  
+      <a routerLink="/" aria-label="Accueil" class="flex-shrink-0">
+        <img src="Logo.png" alt="Logo de l'entreprise" class="w-14 h-14 rounded-full object-cover" />
       </a>  
-      <h1 class="Synaptik">{{nomDeLentreprise}}</h1>
+  
+     
+      <h1 class="text-4xl font-extrabold text-[#F4F6F7] flex-grow text-center max-w-4xl truncate">
+        {{ nomDeLentreprise }} - Votre partenaire de confiance
+      </h1>
+  
       
-      <ul class="nav-btn">
+      <ul class="flex gap-3">
         <li>
-        <a routerLink="/" routerLinkActive="active">Accueil</a>
-    </li>
-    <li>
-      <a routerLink="/ajouter-contact" routerLinkActive="active">Ajouter un contact</a>
-    </li>
-  </ul>
-</nav>
-</header>
+          <a routerLink="/" routerLinkActive="bg-[#5DADE2]"
+             class="px-5 py-2 rounded-md bg-[#2C3E50] text-[#F4F6F7] font-semibold hover:bg-[#5DADE2] transition">
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a routerLink="/ajouter-contact" routerLinkActive="bg-[#5DADE2]"
+             class="px-5 py-2 rounded-md bg-[#2C3E50] text-[#F4F6F7] font-semibold hover:bg-[#5DADE2] transition">
+            Ajouter un contact
+          </a>
+        </li>
+      </ul>
+  
+    </nav>
+  </header>
+  
 
