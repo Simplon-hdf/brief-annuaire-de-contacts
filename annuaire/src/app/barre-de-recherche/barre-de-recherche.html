@@ -1,11 +1,12 @@
-<p>element barre de recherche is working</p>
-<form (ngSubmit)="commencerRecherche()" #formulaireDeRecherche="ngForm">
-<div>
-<input type="text" name ="elementDeRecherche" [(ngModel)]="elementDeRecherche" placeholder="Rechercher..." required />
-<button type="submit">Rechercher</button>
+<form (ngSubmit)="commencerRecherche()" #formulaireDeRecherche="ngForm" class="flex flex-col md:flex-row gap-3 bg-[#F4F6F7] p-4 rounded">
+<div class="flex w-full md:w-auto">
+<input type="text" name ="elementDeRecherche" [(ngModel)]="elementDeRecherche" placeholder="Rechercher..." required
+class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]"/>
+<button type="submit" class="bg-[#2C3E50] text-white rounded-r px-3 py-1 hover:bg-opacity-90">Rechercher</button>
 </div>
 
-<select name="typeDeContact" [(ngModel)]="selectionTypeDeContact">
+<select name="typeDeContact" [(ngModel)]="selectionTypeDeContact"
+class="w-full md:w-auto h-10 border-2 border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded px-3 py-1 tracking-wider">
     <option value="Tous">Tous</option>
     <option value="Clients">Clients</option>
     <option value="Fournisseurs">Fournisseurs</option>
