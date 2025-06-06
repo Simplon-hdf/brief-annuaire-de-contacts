@@ -1,5 +1,18 @@
 import { Injectable } from '@angular/core';
 
+export interface ModeleDeContact {
+  id: number;
+  nom: string;
+  poste: string;
+  typeDeContact: 'Client' | 'Fournisseur';
+  description: string;
+  email: string;
+  telephone: string;
+  photoUrl: string;
+  dateDeCreation?: Date;
+  dateDeModification?: Date;
+}
+
 @Injectable({
   providedIn: 'root'
 })
