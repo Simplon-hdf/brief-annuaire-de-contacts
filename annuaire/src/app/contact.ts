@@ -18,6 +18,7 @@ export interface ModeleDeContact {
 })
 
 export class ContactService {
+  // needs to be changed when CardClient is instancied via a constructor private contacts:CardClient[]= [new CardClient()];
   private CardClient: ModeleDeContact[] = [
     {
       id: 1,
