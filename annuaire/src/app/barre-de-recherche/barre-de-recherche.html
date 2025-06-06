@@ -1,0 +1,13 @@
+<p>element barre de recherche is working</p>
+<form (ngSubmit)="commencerRecherche()" #formulaireDeRecherche="ngForm">
+<div>
+<input type="text" name ="elementDeRecherche" [(ngModel)]="elementDeRecherche" placeholder="Rechercher..." required />
+<button type="submit">Rechercher</button>
+</div>
+
+<select name="typeDeContact" [(ngModel)]="selectionTypeDeContact">
+    <option value="Tous">Tous</option>
+    <option value="Clients">Clients</option>
+    <option value="Fournisseurs">Fournisseurs</option>
+</select>
+</form>
