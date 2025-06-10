@@ -9,8 +9,7 @@ export interface ModeleDeContact {
   email: string;
   telephone: string;
   photoUrl: string;
-  dateDeCreation?: Date;
-  dateDeModification?: Date;
+  
 }
 
 @Injectable({
@@ -18,7 +17,8 @@ export interface ModeleDeContact {
 })
 
 export class ContactService {
-  // needs to be changed when CardClient is instancied via a constructor private contacts:CardClient[]= [new CardClient()];
+  private contacts: CardClient[] = [new CardClient()];
+
   private CardClient: ModeleDeContact[] = [
     {
       id: 1,
@@ -32,4 +32,16 @@ export class ContactService {
     }
   ];
 
+  getContacts(): ModeleDeContact[] {
+    return this.CardClient;
+  }
+  getContactById(id: number): ModeleDeContact | undefined {
+    return this.CardClient.find(contact => contact.id === id);
+  }
+
+  addContact(contact: ModeleDeContact): void {
+    this.CardClient.push(contact);
+  }
+  updateContact(id: number, updatedContact: ModeleDeContact): void {
+}
 }
