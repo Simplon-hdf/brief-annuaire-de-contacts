@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {CommonModule} from '@angular/common';
+
 @Component({
   selector: 'app-formulaire-de-contact',
   imports: [ReactiveFormsModule, CommonModule],
