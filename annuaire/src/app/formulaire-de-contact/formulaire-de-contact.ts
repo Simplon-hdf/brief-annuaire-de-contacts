@@ -46,7 +46,6 @@ if (this.profilContact.valid) {
     };
 //ajouter distinction entre client et fournisseur
 const newCardClient = new CardClient();
-newCardClient.contact = newContact;
 this.cardClients.push(newCardClient);
 this.contactService.addContact(newContact);
 this.profilContact.reset();
@@ -54,36 +53,6 @@ console.log('Nouveau contact ajouté', newCardClient);
 }
 }
 
-}
-
-  // Assuming you have a service to handle the contacts
-
-estInvalide( formControlName: string): boolean {
-  const control = this.profilContact.get(FormControlName); 
-  return !!(control?.invalid && (control?.touched || control?.dirty));
-}
-  
-MessageErreur(formControlName: string): string {
-  const control = this.profilContact.get(FormControlName);
-
-  if (control?.hasError('required')) {
-    return 'Ce champ est obligatoire.';
-  }
-
-  if (control?.hasError('maxlength')) {
-    return `Ce champ ne peut pas dépasser ${control.errors?.['maxlength'].requiredLength} caractères.`;
-  }
-
-  if (control?.hasError('pattern')) {
-    if (formControlName === 'email') {
-      return 'Veuillez entrer une adresse email valide.';
-    }
-
-    if (formControlName === 'telephone') {
-      return 'Veuillez entrer un numéro de téléphone valide (10 chiffres).';
-    }
-}
-return '';
 }
 
 getCardClients(): CardClient[] {
