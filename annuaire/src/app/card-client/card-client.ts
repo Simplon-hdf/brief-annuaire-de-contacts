@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './card-client.css'
 })
 export class CardClient {
-  nom: string = 'Loic Wrobel';
+  nom: string = 'Loïc Wrobel';
   poste: string = 'Responsable Achats';
   description: string = 'Client fidèle depuis 2021, intéressé par nos offres B2B.';
   email: string = 'lolo.wrowro@example.com';
