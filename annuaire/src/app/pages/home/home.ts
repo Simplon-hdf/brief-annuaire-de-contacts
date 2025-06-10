@@ -12,11 +12,13 @@ import { LouiseF } from "../../louise-f/louise-f";
 import { ThomasF } from "../../thomas-f/thomas-f";
 import { MarcF } from "../../marc-f/marc-f";
 import { SarahF } from "../../sarah-f/sarah-f";
+import { PierreF } from "../../pierre-f/pierre-f";
+
 
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC, CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC, LolaC, ClaraC, AichaF, LouiseF, ThomasF, MarcF, SarahF],
+  imports: [GeorgeC, CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC, LolaC, ClaraC, AichaF, LouiseF, ThomasF, MarcF, SarahF, PierreF],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
