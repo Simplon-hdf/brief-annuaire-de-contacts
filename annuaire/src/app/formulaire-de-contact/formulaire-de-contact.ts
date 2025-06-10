@@ -55,7 +55,3 @@ console.log('Nouveau contact ajouté', newCardClient);
 
 }
 
-getCardClients(): CardClient[] {
-  return this.cardClients;
-
-}
