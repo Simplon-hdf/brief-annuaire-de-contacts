@@ -13,17 +13,13 @@ class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#33333
 </div>
 
 <div>
-    <h2>Client ou Fournisseur ?</h2>
-<input type="text" name ="typeDeContact"  required
-class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
-</div>
-
-<select name="typeDeContact" 
+<h2>Client ou Fournisseur ?</h2>
+<select name="typeDeContact"  required
 class="w-full md:w-auto h-10 border-2 border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded px-3 py-1 tracking-wider">
-    <option value="Clients">Clients</option>
-    <option value="Fournisseurs">Fournisseurs</option>
+    <option value="Clients">Client</option>
+    <option value="Fournisseurs">Fournisseur</option>
 </select>
-
+</div>
 
 <div>
     <h2>Description</h2>
@@ -38,14 +34,17 @@ class="w-full md:w-auto h-10 border-2 border-[#2C3E50] focus:outline-none focus:
 </div>
 
 <div>
+    <h2>Téléphone</h2>
     <input type="text" name ="telephone"  required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
 <div>
+    <h2>Photo</h2>
     <input type="link" name ="photoUrl"   required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
+<button type="submit"  class="bg-[#2C3E50] text-white rounded-r px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
 </form>
 
