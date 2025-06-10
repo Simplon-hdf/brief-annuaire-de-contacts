@@ -9,10 +9,11 @@ import { LolaC } from '../../lola-c/lola-c';
 import { ClaraC } from '../../clara-c/clara-c';
 import { AichaF } from "../../aicha-f/aicha-f";
 import { LouiseF } from "../../louise-f/louise-f";
+import { ThomasF } from "../../thomas-f/thomas-f";
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC, CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC, LolaC, ClaraC, AichaF, LouiseF],
+  imports: [GeorgeC, CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC, LolaC, ClaraC, AichaF, LouiseF, ThomasF],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
