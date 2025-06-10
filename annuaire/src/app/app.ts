@@ -8,9 +8,11 @@ import { CarteFournisseurs } from './carte-fournisseurs/carte-fournisseurs';
 import { GeorgeC } from "./george-c/george-c";
 import { RobertC } from "./robert-c/robert-c";
 import { LolaC } from "./lola-c/lola-c";
+import { ClaraC } from "./clara-c/clara-c";
+import { JeanC } from './jean-c/jean-c';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BarreDeRecherche, Header, CardClient, Footer, CarteFournisseurs, GeorgeC, RobertC, LolaC],
+  imports: [RouterOutlet, BarreDeRecherche, Header, CardClient, Footer, CarteFournisseurs, GeorgeC, RobertC, LolaC, ClaraC, JeanC],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
