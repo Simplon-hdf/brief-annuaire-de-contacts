@@ -9,11 +9,7 @@
     <input id="nom" type="text" formControlName ="nom"  required pattern="^(\d{10})$" maxlength="10"
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333]  focus:outline-none focus:border-[#2C3E50] "/>
 
-@if (estInvalide('nom')) {
-<div class="text-red-500 text-sm mt-1">
-{{messageErreur('nom') }}
-</div>
-}
+
 </div>
 
 <div class="mt-7">
@@ -21,11 +17,7 @@ class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50]
 <input id="poste" type="text" formControlName ="poste"   required
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 
-@if (estInvalide('poste')) {
-    <div class="text-red-500 text-sm mt-1">
-    {{messageErreur('poste') }}
-    </div>
-    }
+
 
 </div>
 
@@ -37,8 +29,6 @@ class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outlin
     <option value="Client">Client</option>
     <option value="Fournisseur">Fournisseur</option>
 </select>
-
-
 
 </div>
 
