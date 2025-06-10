@@ -9,18 +9,25 @@ import {CommonModule} from '@angular/common';
   styleUrl: './formulaire-de-contact.css'
 })
 export class FormulaireDeContact {
-form: FormGroup = new FormGroup({
+profilContact: FormGroup = new FormGroup({
   nom: new FormControl('', [Validators.required]),
-  poste: new FormControl('Client', [Validators.required]),
+  poste: new FormControl('', [Validators.required]),
   typeDeContact: new FormControl('', [Validators.required]),
   description: new FormControl(''),
   email: new FormControl('', [Validators.required]),
   telephone: new FormControl('', [Validators.required]),
   photoUrl: new FormControl('', [Validators.required])
+  }
+}
 
-});
 
 onSubmit(): void{
+
+
+estInvalide( FormControl: string): boolean {
+  return this.profilContact.get(FormControl)?.invalid && (this.profilContact.get(FormControl)?.touched || this.profilContact.get(FormControl)?.dirty
+)
+  
 
 }
 }
