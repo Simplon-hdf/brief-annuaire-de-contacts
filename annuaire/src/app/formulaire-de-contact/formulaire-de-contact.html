@@ -1,50 +1,55 @@
-<p>formulaire-de-contact works!</p>
-<form>
-    <div>
-        <h2>Nom</h2>
-    <input type="text" name ="nom"  required
-class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+    <h1 class="text-3xl font-bold text-[#2C3E50] ">Formulaire d'ajout de contact</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="relative group bg-[#F4F6F7] rounded-2xl shadow-md p-8 max-w-3xl w-full mx-auto mt-10 text-[#333333] border-t-4 ">
+    
+<div class="mt-7">
+        <label for="nom"> Nom : </label>
+    <input type="text" formControlName ="nom"  required
+class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333]  focus:outline-none focus:border-[#2C3E50] "/>
 </div>
 
-<div>
-    <h2>Poste</h2>
-<input type="text" name ="poste"   required
-class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+<div class="mt-7">
+    <label for="poste"> Poste : </label>
+<input type="text" formControlName ="poste"   required
+class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
-<div>
-<h2>Client ou Fournisseure ?</h2>
-<select name="typeDeContact"  required
-class="w-full md:w-auto h-10 border-2 border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded px-3 py-1 tracking-wider">
-    <option value="Clients">Client</option>
-    <option value="Fournisseurs">Fournisseur</option>
+<div class="mt-7">
+<label for="typeDeContact"> Client ou Fournisseur ? </label>
+<select nformControlName="typeDeContact"  required
+class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded px-3 py-1 tracking-wider">
+    <option value="Client">Client</option>
+    <option value="Fournisseur">Fournisseur</option>
 </select>
 </div>
 
-<div>
-    <h2>Description</h2>
-    <input type="text" name ="description"  required
-    class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+<div class="mt-7">
+    <label for="description">Description: </label>
+    <input type="text" formControlName ="description"  required
+    class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
-<div>
-    <h2>Email</h2>
-    <input type="text" name ="email"   required
-   class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+<div class="mt-7">
+    <label for="email"> Email : </label>
+    <input type="text" formControlName ="email"   required
+   class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
-<div>
-    <h2>Téléphone</h2>
-    <input type="text" name ="telephone"  required
-    class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+<div class="mt-7">
+    <label for="telephone"> Téléphone : </label>
+    <input type="text" formControlName ="telephone"  required
+    class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
-<div>
-    <h2>Photo</h2>
-    <input type="link" name ="photoUrl"   required
-    class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+<div class="mt-7">
+    <label for="photoUrl"> Photo : </label>
+    <input type="url" formControlName ="photoUrl" placeholder="https://... ou nom-fichier.jpg"  required
+    class="w-full md:w-80 px-3 h-10 rounded-l border-2  border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 </div>
 
-<button type="submit"  class="bg-[#2C3E50] text-white rounded-r px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
+<button type="submit"  class=" mt-12  bg-[#2C3E50] text-white rounded px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
 </form>
 
+</div>
