@@ -1,43 +1,56 @@
-import { Component } from '@angular/core';
-import {FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, model} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ContactService, ModeleDeContact} from '../contact';
-import {CardClient} from '../card-client/card-client';
-import {CarteFournisseurs} from '../carte-fournisseurs/carte-fournisseurs';
+import {ContactService} from '../contact';
 
-import { format } from 'path';
-import { create } from 'domain';
 
 @Component({
   selector: 'app-formulaire-de-contact',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule],
   templateUrl: './formulaire-de-contact.html',
   styleUrl: './formulaire-de-contact.css'
 })
 export class FormulaireDeContact {
 
+  nom = model('');
+  poste = model('');
+  typeDeContact = model<TypeDeContact | ''>('');
+  description = model('');
+  email = model('');
+  telephone = model('');
+  photoUrl = model('');
+ 
+private contactService = inject(ContactService);
 
-profilContact: FormGroup = new FormGroup({
-  nom: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-  poste: new FormControl('', [Validators.required]),
-  typeDeContact: new FormControl('', [Validators.required]),
-  description: new FormControl(''),
-  email: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
-  telephone: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
-  photoUrl: new FormControl('', [Validators.required])
-  });
+   ajouterContact() {
+    this.contactService.ajouter({
+      id: Date.now(), // Utilisation de Date.now() pour générer un ID unique
+      nom: this.nom(),
+      poste: this.poste(),
+      typeDeContact: this.typeDeContact(),
+      description: this.description(),
+      email: this.email(),
+      telephone: this.telephone(),
+      photoUrl: this.photoUrl(),
+    });
 
-  constructor(private contactService: ContactService) {}
+    console.log('Nouveau contact {{this.typeDeContact}} ajouté : {{this.nom}}', nouveauContact);
+  }
 
+    reinitialiserFormulaire(){
+    this.nom.set('');
+    this.poste.set('');
+    this.typeDeContact.set('');
+    this.description.set('');
+    this.email.set('');
+    this.telephone.set('');
+    this.photoUrl.set('');
+    };
 
-onSubmit(): void { 
-if (this.profilContact.valid) {
-  console.log('Form Data', this.profilContact.value);
-
+onSubmit(){
+  this.ajouterContact();
+}
 
   
 }
-}
 
-}
-
+   

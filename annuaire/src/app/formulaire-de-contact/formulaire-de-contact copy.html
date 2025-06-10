@@ -6,18 +6,26 @@
     
 <div class="mt-7">
         <label> Nom : </label>
-    <input type="text" [(model)]="nom" id="nom" required pattern="^(\d{10})$" maxlength="10"
+    <input type="text" [(model)]="nom" ngModel="nom" required pattern="^(\d{10})$" maxlength="10"
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333]  focus:outline-none focus:border-[#2C3E50] "/>
 
-
+@if (nom.invalid && nom.touched) {
+    <div style="color: red;">
+        <p>Avez-vous bien renseigné le nom du nouveau contact</p>
+}
+    </div>
 </div>
 
 <div class="mt-7">
     <label for="poste"> Poste : </label>
-<input type="text" [(model)]="poste" id="poste"  required
+<input type="text" [(model)]="poste" ngModel="poste"  required
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 
-
+@if (poste.invalid && poste.touched) {
+    <div style="color: red;">
+        <p>Avez-vous bien renseigné la fonction qu'occupe ce nouveau contact ?</p>
+}
+    </div>
 
 </div>
 
@@ -28,39 +36,62 @@ class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outlin
     <option value="Client">Client</option>
     <option value="Fournisseur">Fournisseur</option>
 </select>
+
 </div>
 
 <div class="mt-7">
     <label for="description">Description : </label>
-    <input  type="text" [(model)]="description" id="description"  required
+    <input  type="text" [(model)]="description" ngModel="description"  required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+
+    @if (description.invalid && description.touched) {
+        <div style="color: red;">
+            <p>Avez-vous écrit une courte description du contact ?</p>
+    }
+        </div>
 </div>
 
 <div class="mt-7">
     <label for="email"> Email : </label>
-    <input  type="email" [(model)]="email" id="email"  required pattern ="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+    <input  type="email" [(model)]="email" ngModel="email"  required pattern ="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
    class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+
+   @if (email.invalid && email.touched) {
+    <div style="color: red;">
+        <p>Avez-vous bien renseigné le mail ?</p>
+}
+    </div>
 </div>
 
 <div class="mt-7">
     <label for="telephone"> Téléphone : </label>
-    <input type="text" [(model)]="telephone" id="telephone" required
+    <input type="text" [(model)]="telephone" ngModel="telephone" required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
    
+    @if (telephone.invalid && telephone.touched) {
+        <div style="color: red;">
+            <p>Avez-vous bien renseigné le numéro de téléphone ? </p>
+    }
+        </div>
    
 
 </div>
 
 <div class="mt-7">
     <label for="photoUrl"> Photo : </label>
-    <input type="url" [(model)]="photoUrl" id="photo-url" placeholder="https://... ou nom-fichier.jpg " accept="image/png,image/jpg" required
+    <input type="url" [(model)]="photoUrl" ngModel="photoUrl" placeholder="https://... ou nom-fichier.jpg " accept="image/png,image/jpg" required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2  border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
    
+    @if (photoUrl.invalid && photoUrl.touched) {
+        <div style="color: red;">
+            <p>Avez-vous ajouté la bonne photo? </p>
+    }
+        </div>
     
 </div>
 
-<button type="submit" [disabled]="!profilContact.valid" class="mt-12  bg-[#2C3E50] text-white rounded px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
-<p>Form Status: {{ profilContact.status }}</p>
+<button type="submit" [disabled]="!nouveauContact.valid" class="mt-12  bg-[#2C3E50] text-white rounded px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
+<p>Form Status: {{ nouveauContact.status }}</p>
 </form>
 
 </div>
