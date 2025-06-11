@@ -7,11 +7,19 @@ import { JeanC } from '../../jean-c/jean-c';
 import { RobertC } from '../../robert-c/robert-c';
 import { LolaC } from '../../lola-c/lola-c';
 import { ClaraC } from '../../clara-c/clara-c';
+import { MarcF } from '../../marc-f/marc-f';
+import { PierreF } from '../../pierre-f/pierre-f';
+import { ThomasF } from '../../thomas-f/thomas-f';
+import { SarahF } from '../../sarah-f/sarah-f';
+import { AichaF } from '../../aicha-f/aicha-f';
+import { LouiseF } from '../../louise-f/louise-f';
+
 
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC ],
+  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF, PierreF, ThomasF, SarahF, AichaF, LouiseF
+   ],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
