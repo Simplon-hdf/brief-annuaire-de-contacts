@@ -7,11 +7,13 @@ import { JeanC } from '../../jean-c/jean-c';
 import { RobertC } from '../../robert-c/robert-c';
 import { LolaC } from '../../lola-c/lola-c';
 import { ClaraC } from '../../clara-c/clara-c';
+import { MarcF } from '../../marc-f/marc-f';
 
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC ],
+  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF
+   ],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
