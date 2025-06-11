@@ -1,14 +1,22 @@
-import { Component, inject } from '@angular/core';
-import {ContactService} from '../contact';
+import { Component, inject, OnInit, Signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {ContactService, ContactCommun} from '../contact';
 
 @Component({
   selector: 'app-liste-de-contacts',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './liste-de-contacts.html',
   styleUrl: './liste-de-contacts.css'
 })
-export class ListeDeContacts {
+
+export class ListeDeContacts implements OnInit {
   private contactService = inject(ContactService);
-  contacts = this.contactService.contacts; 
+
+  contacts: Signal<ContactCommun[]> = this.contactService.contacts;
+
+  ngOnInit() {
+   
+    this.contactService.ChargerLesContacts(); 
+}
 }
