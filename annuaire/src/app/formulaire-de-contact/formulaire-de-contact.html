@@ -2,29 +2,25 @@
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
     <h1 class="text-3xl font-bold text-[#2C3E50] ">Formulaire d'ajout de contact</h1>
 
-<form [formGroup]="profilContact" (ngSubmit)="onSubmit()" class="relative group bg-[#F4F6F7] rounded-2xl shadow-md p-8 max-w-3xl w-full mx-auto mt-10 text-[#333333] border-t-4 ">
+<form (ngSubmit)="onSubmit()" class="relative group bg-[#F4F6F7] rounded-2xl shadow-md p-8 max-w-3xl w-full mx-auto mt-10 text-[#333333] border-t-4 ">
     
 <div class="mt-7">
-        <label for="nom"> Nom : </label>
-    <input id="nom" type="text" formControlName ="nom"  required pattern="^(\d{10})$" maxlength="10"
+        <label> Nom : </label>
+    <input type="text" (model)="nom()" id="nom" required pattern="^(\d{3-30})$" maxlength="30"
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333]  focus:outline-none focus:border-[#2C3E50] "/>
-
 
 </div>
 
 <div class="mt-7">
     <label for="poste"> Poste : </label>
-<input id="poste" type="text" formControlName ="poste"   required
+<input type="text" (model)="poste()" id="poste"  required
 class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
-
-
 
 </div>
 
 <div class="mt-7">
 <label for="typeDeContact"> Client ou Fournisseur ? </label>
-
-<select id="type-de-contact" formControlName="typeDeContact"  required
+<select (model)="typeDeContact()" id="type-de-contact"  required
 class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded px-3 py-1 tracking-wider">
     <option value="Client">Client</option>
     <option value="Fournisseur">Fournisseur</option>
@@ -34,40 +30,46 @@ class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outlin
 
 <div class="mt-7">
     <label for="description">Description : </label>
-    <input id="description" type="text" formControlName ="description"  required
+    <input  type="text" (model)="description()" id="description"  required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
 
-   
 </div>
 
 <div class="mt-7">
     <label for="email"> Email : </label>
-    <input id="email" type="text" formControlName ="email"   required pattern ="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+    <input  type="email" (model)="email()" id="email"  required pattern ="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
    class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
-
-  
-
+    
 </div>
 
 <div class="mt-7">
     <label for="telephone"> Téléphone : </label>
-    <input id="telephone" type="text" formControlName ="telephone"  required
+    <input type="text" (model)="telephone()" id="telephone" required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
-   
-   
-
+  
 </div>
 
 <div class="mt-7">
     <label for="photoUrl"> Photo : </label>
-    <input id="photo-url" type="url" formControlName ="photoUrl" accept="image/png,image/jpg" placeholder="https://... ou nom-fichier.jpg "  required
+    <input type="text" (model)="photoUrl()" id="photoUrl" placeholder="https://... ou nom-fichier.jpg " accept="image.png,image.jpg" required
     class="w-full md:w-80 px-3 h-10 rounded-l border-2  border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
    
-    
+    @if (photoUrl().trim() !== '') {
+        <img [src]="photoUrl()" alt="Photo du contact" class="mt-4 h-32 rounded shadow" />
+      }
+   <div>
 </div>
 
-<button type="submit" [disabled]="!profilContact.valid" class="mt-12  bg-[#2C3E50] text-white rounded px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
-<p>Form Status: {{ profilContact.status }}</p>
+<button type="submit" class="mt-12  bg-[#2C3E50] text-white rounded px-3 py-1 hover:bg-[#5DADE2] transition">Ajouter contact</button>
+
+
+</div>
+
 </form>
+@if(contactAjoute !==null) {
+ <p> 
+    Contact {{ contactAjoute()?.TypeDeContact }} ajouté : {{ contactAjoute()?.nom }}
+</p>
+}
 
 </div>
