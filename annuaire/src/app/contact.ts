@@ -5,7 +5,7 @@ export interface ContactCommun {
   id: number;
   nom: string;
   poste: string;
-  typeDeContact: TypeDeContact;
+  typeDeContact: ""| TypeDeContact;
   description: string;
   email: string;
   telephone: string;
