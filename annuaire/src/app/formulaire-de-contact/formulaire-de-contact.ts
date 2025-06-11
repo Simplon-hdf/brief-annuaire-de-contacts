@@ -1,4 +1,4 @@
-import { Component, inject} from '@angular/core';
+import { Component, inject, signal} from '@angular/core';
 import { model } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ContactService} from '../contact';
@@ -14,15 +14,16 @@ export type TypeDeContact = 'Client' | 'Fournisseur';
 })
 export class FormulaireDeContact {
 
-  nom = model('');
-  poste = model('');
-  typeDeContact = model<TypeDeContact | ''>('');
-  description = model('');
-  email = model('');
-  telephone = model('');
-  photoUrl = model('');
+  nom = signal('');
+  poste = signal('');
+  typeDeContact = signal<TypeDeContact | ''>('');
+  description = signal('');
+  email = signal('');
+  telephone = signal('');
+  photoUrl = signal('');
  
-private contactService = inject(ContactService);
+  contactAjoute = signal<{ nom: string; TypeDeContact: string } | null>(null);
+  private contactService = inject(ContactService);
 
    ajouterContact() {
     const type = this.typeDeContact();
@@ -43,8 +44,11 @@ private contactService = inject(ContactService);
     }
 
     this.contactService.ajouter(nouveauContact);
-    console.log(`Nouveau contact ${this.typeDeContact()} ajouté : ${this.nom()}`);
+    this.contactAjoute.set({ nom: nouveauContact.nom, TypeDeContact: nouveauContact.typeDeContact });  
   
+    setTimeout(() => {
+      this.contactAjoute.set(null);
+    }, 2000);
   }
 
     reinitialiserFormulaire(){
