@@ -23,15 +23,27 @@ export class ContactService {
   private http = inject(HttpClient);
   private readonly apiUrl = 'http://localhost:3000/contacts';
   
+  private contactsSignal = signal<ContactCommun[]>([]);
   
+  contacts = this.contactsSignal.asReadonly();
+
+  ChargerLesContacts() {
+    this.http.get<ContactCommun[]>(this.apiUrl).subscribe({
+      next: (contacts) => this.contactsSignal.set(contacts),
+      error: (err) => console.error('Erreur de chargement des contacts', err),
+    });
+  }
+
   ajouter(contact: ContactCommun) {
-   return this.http.post<ContactCommun>(this.apiUrl, contact);
+    this.http.post<ContactCommun>(this.apiUrl, contact).subscribe({
+      next: (nouveau) => {
+        this.contactsSignal.update(contacts => [...contacts, nouveau]);
+      },
+      error: (err) => console.error('Erreur ajout contact', err),
+    });
   }
-  getAll() {
-    return this.http.get<ContactCommun[]>(this.apiUrl);
-  }
- 
-  getByType(type: TypeDeContact) {
-    return this.http.get<ContactCommun[]>(`${this.apiUrl}?typeDeContact=${type}`);
+
+  ChargerParTypeDeContact(type: TypeDeContact): ContactCommun[] {
+    return this.contactsSignal().filter(c => c.typeDeContact === type);
   }
 }
