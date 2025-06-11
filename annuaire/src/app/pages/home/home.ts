@@ -8,11 +8,12 @@ import { RobertC } from '../../robert-c/robert-c';
 import { LolaC } from '../../lola-c/lola-c';
 import { ClaraC } from '../../clara-c/clara-c';
 import { MarcF } from '../../marc-f/marc-f';
+import { PierreF } from '../../pierre-f/pierre-f';
 
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF
+  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF, PierreF
    ],
   templateUrl: './home.html',
   styleUrl: './home.css'
