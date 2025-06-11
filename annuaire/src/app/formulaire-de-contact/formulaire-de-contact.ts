@@ -1,5 +1,4 @@
 import { Component, inject, signal} from '@angular/core';
-import { model } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ContactService} from '../contact';
 
