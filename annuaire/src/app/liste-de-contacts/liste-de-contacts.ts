@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, Signal } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ContactService, ContactCommun} from '../contact';
 
@@ -11,8 +11,9 @@ import {ContactService, ContactCommun} from '../contact';
   styleUrl: './liste-de-contacts.css'
 })
 
-export class ListeDeContacts{
-  private contactService = inject(ContactService);
 
+export class ListeDeContacts {
+  private contactService = inject(ContactService);
   contacts: Signal<ContactCommun[]> = this.contactService.contacts;
+
 }

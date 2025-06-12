@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './clara-c.css'
 })
 export class ClaraC {
+  id: number = 3;
   nom: string = 'Clara Martin';
   poste: string = 'Chef de Projet Digital';
   description: string = 'Nouvelle cliente, désireuse d\'explorer nos solutions en développement web et applications mobiles.';

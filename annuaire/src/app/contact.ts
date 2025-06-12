@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 export type TypeDeContact = 'Client' | 'Fournisseur';
 export interface ContactCommun {
-  id: number;
+  id: number; 
   nom: string;
   poste: string;
   typeDeContact: ""| TypeDeContact;
@@ -23,12 +23,14 @@ export class ContactService {
   private readonly apiUrl = 'http://localhost:3000/contacts'; 
   constructor(private http: HttpClient) {}
 
+
   get contacts() {
     return this.contactsSignal.asReadonly(); 
   }
   ajouter(contact: ContactCommun) {
     this.contactsSignal.update(contacts => [...contacts, contact]);
   }
+
   chargerContacts() {
     this.http.get<ContactCommun[]>(this.apiUrl).subscribe({
       next: (data) => this.contactsSignal.set(data),
@@ -47,4 +49,3 @@ export class ContactService {
   }
 }
   
-

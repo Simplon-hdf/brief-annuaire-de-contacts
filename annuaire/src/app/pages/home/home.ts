@@ -13,13 +13,13 @@ import { ThomasF } from '../../thomas-f/thomas-f';
 import { SarahF } from '../../sarah-f/sarah-f';
 import { AichaF } from '../../aicha-f/aicha-f';
 import { LouiseF } from '../../louise-f/louise-f';
+import { ListeDeContacts } from '../../liste-de-contacts/liste-de-contacts';
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF, PierreF, ThomasF, SarahF, AichaF, LouiseF
-   ],
+  imports: [GeorgeC,CardClient, CarteFournisseurs, BarreDeRecherche, JeanC, RobertC,LolaC,ClaraC, MarcF, PierreF, ThomasF, SarahF, AichaF, LouiseF, ListeDeContacts],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

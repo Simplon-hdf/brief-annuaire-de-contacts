@@ -44,7 +44,7 @@ class="w-full md:w-auto h-10 border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outlin
 
 <div class="mt-7">
     <label for="telephone"> Téléphone : </label>
-    <input type="text" (model)="telephone()" id="telephone" required
+    <input type="text" (model)="telephone()" id="telephone" required pattern ="^(?:\+33|0033|0)\d{9,11}$"
     class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
   
 </div>
