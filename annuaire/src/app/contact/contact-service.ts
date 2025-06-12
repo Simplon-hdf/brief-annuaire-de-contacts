@@ -1,7 +1,19 @@
 // contact-service.ts
 import { Injectable, signal } from '@angular/core';
-import { ContactCommun, TypeDeContact } from '../contact';
 
+
+export type TypeDeContact = 'Client' | 'Fournisseur';
+export interface ContactCommun {
+  id: number; 
+  nom: string;
+  poste: string;
+  typeDeContact: ""| TypeDeContact;
+  description: string;
+  email: string;
+  telephone: string;
+  photoUrl: string;
+  
+}
 @Injectable({
   providedIn: 'root'  // Permet d’injecter ce service partout (singleton)
 })
@@ -34,3 +46,4 @@ export class ContactService {
     return this.contactsSignal().filter(c => c.typeDeContact === 'Fournisseur');
   }
 }
+
