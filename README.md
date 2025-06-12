@@ -14,3 +14,12 @@ The application provides:
 - Displaying detailed information for each contact
 - Visual differentiation between clients and suppliers
 - Displaying contacts as cards containing key information and a photo
+- 
+## Features
+- Development using Angular with components and services
+- Simulated data using variables or JSON file
+- Dynamic and responsive display
+- Client/Supplier differentiation through styling
+- Contact creation form
+- Real-time search
+
