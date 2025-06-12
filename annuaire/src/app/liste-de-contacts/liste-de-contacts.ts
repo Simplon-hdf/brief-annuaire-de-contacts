@@ -16,7 +16,7 @@ export class ListeDeContacts {
   contacts: Signal<ContactCommun[]> = this.contactService.contacts;
 
   contact: ContactCommun = {
-    id: 0, // This will be overwritten, so just a placeholder
+    id: 0, 
     nom: '',
     poste: '',
     typeDeContact: '',
@@ -28,14 +28,14 @@ export class ListeDeContacts {
 
   onImageError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
-    imgElement.src = 'assets/avatar.png'; // ✅ Correct path
+    imgElement.src = '/avatar.png'; 
   }
 
   ajouterContact() {
-    this.contactService.ajouter(this.contact); // ✅ id will be added here
+    this.contactService.ajouter(this.contact); 
 
     this.contact = {
-      id: 0, // Reset placeholder
+      id: 0,
       nom: '',
       poste: '',
       typeDeContact: '',
