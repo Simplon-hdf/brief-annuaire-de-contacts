@@ -33,14 +33,35 @@
 
     <div class="mt-7">
       <label for="email">Email :</label>
-      <input id="email" type="text" formControlName="email"
-             class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outline-none focus:border-[#2C3E50]" />
+      <input id="email" type="email" formControlName="email"
+             class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+    
+      @if (form.controls['email'].invalid && form.controls['email'].touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if (form.controls['email'].errors?.['required']) {
+            <p>L’email est requis.</p>
+          } @else if (form.controls['email'].errors?.['email']) {
+            <p>Entrez une adresse email valide.</p>
+          }
+        </div>
+      }
     </div>
+    
 
     <div class="mt-7">
       <label for="telephone">Téléphone :</label>
       <input id="telephone" type="text" formControlName="telephone"
-             class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] focus:outline-none focus:border-[#2C3E50]" />
+             class="w-full md:w-80 px-3 h-10 rounded-l border-2 bg-[#F4F6F7] border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+    
+      @if (form.controls['telephone'].invalid && form.controls['telephone'].touched) {
+        <div class="text-red-500 text-sm mt-1">
+          @if (form.controls['telephone'].errors?.['required']) {
+            <p>Le téléphone est requis.</p>
+          } @else if (form.controls['telephone'].errors?.['pattern']) {
+            <p>Entrez un numéro à 10 chiffres.</p>
+          }
+        </div>
+      }
     </div>
 
     <div class="mt-7">
@@ -48,6 +69,12 @@
       <input id="photo-url" type="url" formControlName="photoUrl"
              placeholder="https://... ou nom-fichier.jpg"
              class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+    
+      @if (form.controls['photoUrl'].invalid && form.controls['photoUrl'].touched) {
+        <div class="text-red-500 text-sm mt-1">
+          La photo est requise.
+        </div>
+      }
     </div>
 
     <button type="submit"
