@@ -1,6 +1,5 @@
-import { inject, Injectable, signal } from '@angular/core';
-import{HttpClient} from '@angular/common/http';
-
+import { Injectable, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 export type TypeDeContact = 'Client' | 'Fournisseur';
 export interface ContactCommun {
@@ -12,7 +11,7 @@ export interface ContactCommun {
   email: string;
   telephone: string;
   photoUrl: string;
-
+  
 }
 
 @Injectable({
@@ -21,12 +20,22 @@ export interface ContactCommun {
 
 export class ContactService {
   private contactsSignal = signal<ContactCommun[]>([]);
+  private readonly apiUrl = 'http://localhost:3000/contacts'; 
+  constructor(private http: HttpClient) {}
+
 
   get contacts() {
     return this.contactsSignal.asReadonly(); 
   }
   ajouter(contact: ContactCommun) {
     this.contactsSignal.update(contacts => [...contacts, contact]);
+  }
+
+  chargerContacts() {
+    this.http.get<ContactCommun[]>(this.apiUrl).subscribe({
+      next: (data) => this.contactsSignal.set(data),
+      error: (err) => console.error('Erreur lors du chargement des contacts :', err)
+    });
   }
   getContactById(id: number): ContactCommun | undefined {
     return this.contactsSignal().find(contact => contact.id === id);
@@ -39,3 +48,4 @@ export class ContactService {
     return this.contactsSignal().filter(c => c.typeDeContact === 'Fournisseur');
   }
 }
+  

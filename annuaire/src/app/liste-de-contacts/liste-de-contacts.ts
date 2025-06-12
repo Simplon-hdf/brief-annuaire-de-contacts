@@ -1,6 +1,7 @@
-import { Component, inject, OnInit, Signal } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ContactService, ContactCommun} from '../contact';
+
 
 @Component({
   selector: 'app-liste-de-contacts',
@@ -9,6 +10,7 @@ import {ContactService, ContactCommun} from '../contact';
   templateUrl: './liste-de-contacts.html',
   styleUrl: './liste-de-contacts.css'
 })
+
 
 export class ListeDeContacts {
   private contactService = inject(ContactService);
