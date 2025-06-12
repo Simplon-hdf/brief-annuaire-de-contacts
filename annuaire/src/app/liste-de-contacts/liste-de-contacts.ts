@@ -17,6 +17,6 @@ export class ListeDeContacts implements OnInit {
 
   ngOnInit() {
    
-    this.contactService.ChargerLesContacts(); 
+  
 }
 }

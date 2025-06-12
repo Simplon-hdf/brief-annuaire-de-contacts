@@ -1,8 +1,7 @@
 import { Component, inject, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ContactService} from '../contact';
-
-export type TypeDeContact = 'Client' | 'Fournisseur';
+import {TypeDeContact} from '../contact';
 
 @Component({
   selector: 'app-formulaire-de-contact',
@@ -64,7 +63,23 @@ onSubmit(){
   this.ajouterContact();
 }
 
-  
+downloadJSON() {
+  const contactData = {
+    nom: this.nom(),
+    poste: this.poste(),
+    typeDeContact: this.typeDeContact(),
+    description: this.description(),
+    email: this.email(),
+    telephone: this.telephone(),
+    photoUrl: this.photoUrl(),
+  };
+    const dataStr = JSON.stringify(contactData, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(dataBlob);
+    link.download = `contact-${this.nom() || 'data'}.json`;
+    link.click();
 }
 
-   
+}
