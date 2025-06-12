@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {ContactService} from '../contact/contact-service';
+
 
 @Component({
   selector: 'app-formulaire-de-contact',
@@ -12,16 +14,19 @@ import { CommonModule } from '@angular/common';
 export class FormulaireDeContact {
   form: FormGroup = new FormGroup({
     nom: new FormControl('', Validators.required),
-    poste: new FormControl('Client', Validators.required),
+    poste: new FormControl('', Validators.required),
     typeDeContact: new FormControl('', Validators.required),
     description: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
     telephone: new FormControl('', [
       Validators.required,
-      Validators.pattern('^\\d{10}$') // exactly 10 digits
+      Validators.pattern('^\\d{10}$')
     ]),
     photoUrl: new FormControl('', Validators.required)
   });
+
+  contactAjoute = signal<{ nom: string; TypeDeContact: string } | null>(null);
+  private contactService = inject(ContactService);
 
   onSubmit() {
     if (this.form.valid) {
@@ -33,15 +38,8 @@ export class FormulaireDeContact {
   }
 
   ajouterContact() {
-    const type = this.form.value.typeDeContact;
-
-    if (type !== 'Client' && type !== 'Fournisseur') {
-      console.error('Type de contact invalide !');
-      return;
-    }
-
     const nouveauContact = {
-      id: Date.now(),
+      id: 0, // Placeholder, real id will be generated in service
       nom: this.form.value.nom,
       poste: this.form.value.poste,
       typeDeContact: this.form.value.typeDeContact,
@@ -51,7 +49,13 @@ export class FormulaireDeContact {
       photoUrl: this.form.value.photoUrl
     };
 
-    console.log('Nouveau contact ajouté :', nouveauContact);
-    // Here you'd normally push this to a contacts list or emit it.
+    this.contactService.ajouter(nouveauContact);
+
+    this.contactAjoute.set({
+      nom: nouveauContact.nom,
+      TypeDeContact: nouveauContact.typeDeContact
+    });
+
+    this.form.reset(); // Optionally reset form
   }
 }
