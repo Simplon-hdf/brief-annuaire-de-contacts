@@ -11,12 +11,8 @@ import {ContactService, ContactCommun} from '../contact';
   styleUrl: './liste-de-contacts.css'
 })
 
-export class ListeDeContacts implements OnInit {
+export class ListeDeContacts{
   private contactService = inject(ContactService);
 
   contacts: Signal<ContactCommun[]> = this.contactService.contacts;
-
-  ngOnInit(): void {
-      
-  }
 }
