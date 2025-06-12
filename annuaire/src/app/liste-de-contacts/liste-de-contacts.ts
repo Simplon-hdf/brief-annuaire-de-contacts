@@ -2,6 +2,7 @@ import { Component, inject, OnInit, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ContactService, ContactCommun} from '../contact';
 
+
 @Component({
   selector: 'app-liste-de-contacts',
   standalone: true,
@@ -15,8 +16,7 @@ export class ListeDeContacts implements OnInit {
 
   contacts: Signal<ContactCommun[]> = this.contactService.contacts;
 
-  ngOnInit() {
-   
-    this.contactService.ChargerLesContacts(); 
-}
+  ngOnInit(): void {
+      
+  }
 }
