@@ -22,4 +22,14 @@ The application provides:
 - Client/Supplier differentiation through styling
 - Contact creation form
 - Real-time search
+  
+## Technologies
+
+- Angular
+
+- TypeScript
+
+- HTML / CSS
+
+
 
