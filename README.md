@@ -29,7 +29,24 @@ The application provides:
 
 - TypeScript
 
-- HTML / CSS
+- HTML 
+
+## Installation and Usage
+### Prerequisites
+Node.js
+
+Angular CLI
+
+Installation
+
+
+## bash
+Copier
+Modifier
+git clone <REPO-URL>
+cd annuaire
+npm install
+ng serve
 
 
 
