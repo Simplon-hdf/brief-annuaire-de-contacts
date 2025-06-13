@@ -31,7 +31,7 @@
       </select>
     </form>
   
-    <!-- Résultats de recherche -->
+   
     <div 
       *ngIf="afficherResultats && resultatsAffiches.length > 0" 
       class="absolute top-full left-0 right-0 bg-white border-2 border-[#2C3E50] border-t-0 rounded-b shadow-lg z-10 max-h-96 overflow-y-auto">
@@ -42,12 +42,12 @@
         class="px-4 py-3 hover:bg-[#F4F6F7] cursor-pointer border-b border-gray-200 last:border-b-0 transition-colors">
         
         <div class="flex items-start space-x-3">
-          <!-- Photo -->
+        
           <div class="w-12 h-12 bg-[#2C3E50] rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
             {{ contact.nom.charAt(0).toUpperCase() }}
           </div>
           
-          <!-- Informations -->
+        
           <div class="flex-1 min-w-0">
             <div class="flex justify-between items-start">
               <div class="flex-1">
@@ -81,7 +81,7 @@
       </div>
     </div>
   
-    <!-- Message si aucun résultat -->
+    
     <div 
       *ngIf="afficherResultats && resultatsAffiches.length === 0 && elementDeRecherche.trim() !== ''" 
       class="absolute top-full left-0 right-0 bg-white border-2 border-[#2C3E50] border-t-0 rounded-b shadow-lg z-10">
