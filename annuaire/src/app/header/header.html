@@ -1,0 +1,31 @@
+<header class="bg-[#2C3E50] shadow-md">
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 p-4">
+      
+      <figure class="flex-shrink-0">
+        <a routerLink="/home" aria-label="Accueil">
+          <img src="Logo.png" alt="Logo de l'entreprise" class="w-14 h-14 rounded-full object-cover" />
+        </a>
+      </figure>
+  
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F4F6F7] text-center md:flex-grow md:truncate">
+        {{ nomDeLentreprise }} - Votre partenaire de confiance
+      </h1>
+  
+      <ul class="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+        <li class="w-full md:w-auto">
+          <a routerLink="/" routerLinkActive="bg-[#5DADE2]"
+             class="block text-center px-5 py-2 rounded-md bg-[#2C3E50] text-[#F4F6F7] font-semibold hover:bg-[#5DADE2] transition w-full">
+            Accueil
+          </a>
+        </li>
+        <li class="w-full md:w-auto">
+          <a routerLink="/ajouter-un-contact" routerLinkActive="bg-[#5DADE2]"
+             class="block text-center px-5 py-2 rounded-md bg-[#2C3E50] text-[#F4F6F7] font-semibold hover:bg-[#5DADE2] transition w-full">
+            Ajouter un contact
+          </a>
+        </li>
+      </ul>
+  
+    </nav>
+  </header>
+  

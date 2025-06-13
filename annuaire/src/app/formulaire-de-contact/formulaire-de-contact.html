@@ -1,0 +1,91 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+  <h1 class="text-3xl font-bold text-[#2C3E50] text-center">Formulaire d'ajout de contact</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" 
+        class="group bg-[#F4F6F7] rounded-2xl shadow-md p-8 max-w-5xl w-full mx-auto mt-10 text-[#333333] border-t-4">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="flex flex-col w-full">
+        <label for="nom" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Nom</label>
+        <input id="nom" type="text" formControlName="nom"
+               class="w-full px-3 h-10 rounded-md border-2 bg-white border-[#2C3E50] focus:outline-none focus:border-[#2C3E50]" />
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="poste" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Poste</label>
+        <input id="poste" type="text" formControlName="poste"
+               class="w-full px-3 h-10 rounded-md border-2 bg-white border-[#2C3E50] focus:outline-none focus:border-[#2C3E50]" />
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="type-de-contact" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Client ou Fournisseur ?</label>
+        <select id="type-de-contact" formControlName="typeDeContact"
+                class="w-full h-10 border-2 bg-white border-[#2C3E50] focus:outline-none focus:border-[#2C3E50] text-[#2C3E50] rounded-md px-3 py-1 tracking-wider">
+          <option value="">Sélectionnez</option>
+          <option value="Client">Client</option>
+          <option value="Fournisseur">Fournisseur</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="description" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Description</label>
+        <input id="description" type="text" formControlName="description"
+               class="w-full px-3 h-10 rounded-md border-2 bg-white border-[#2C3E50] focus:outline-none focus:border-[#2C3E50]" />
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="email" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Email</label>
+        <input id="email" type="email" formControlName="email"
+               class="w-full px-3 h-10 rounded-md border-2 bg-white border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+        
+        @if (form.controls['email'].invalid && form.controls['email'].touched) {
+          <div class="text-red-500 text-sm mt-1">
+            @if (form.controls['email'].errors?.['required']) {
+              <p>L’email est requis.</p>
+            } @else if (form.controls['email'].errors?.['email']) {
+              <p>Entrez une adresse email valide.</p>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="telephone" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Téléphone</label>
+        <input id="telephone" type="text" formControlName="telephone"
+               class="w-full px-3 h-10 rounded-md border-2 bg-white border-[#2C3E50] text-[#333333] focus:outline-none focus:border-[#2C3E50]" />
+        
+        @if (form.controls['telephone'].invalid && form.controls['telephone'].touched) {
+          <div class="text-red-500 text-sm mt-1">
+            @if (form.controls['telephone'].errors?.['required']) {
+              <p>Le téléphone est requis.</p>
+            } @else if (form.controls['telephone'].errors?.['pattern']) {
+              <p>Entrez un numéro à 10 chiffres.</p>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="flex flex-col w-full md:col-span-2">
+        <label for="photo-url" class="text-left text-sm font-medium text-[#2C3E50] mb-1">Photo</label>
+        <input id="photo-url" type="url" formControlName="photoUrl"
+               placeholder="https://... ou nom-fichier.jpg"
+               class="w-full px-3 h-10 rounded-md border-2 border-[#2C3E50] bg-white text-[#333333] focus:outline-none focus:border-[#2C3E50] placeholder:text-gray-400" />
+        
+        @if (form.controls['photoUrl'].invalid && form.controls['photoUrl'].touched) {
+          <div class="text-red-500 text-sm mt-1">
+            La photo est requise.
+          </div>
+        }
+      </div>
+
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <button type="submit"
+              class="bg-[#2C3E50] text-white rounded-md px-6 py-2 hover:bg-[#5DADE2] transition">
+        Ajouter contact
+      </button>
+    </div>
+  </form>
+</div>
