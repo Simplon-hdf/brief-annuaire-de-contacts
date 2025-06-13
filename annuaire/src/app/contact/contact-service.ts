@@ -1,36 +1,54 @@
-// contact-service.ts
 import { Injectable, signal } from '@angular/core';
-import { ContactCommun, TypeDeContact } from '../contact';
+import { HttpClient } from '@angular/common/http';
+
+export type TypeDeContact = 'Client' | 'Fournisseur';
+export interface ContactCommun {
+  id: number; 
+  nom: string;
+  poste: string;
+  typeDeContact: ""| TypeDeContact;
+  description: string;
+  email: string;
+  telephone: string;
+  photoUrl: string;
+  
+}
 
 @Injectable({
-  providedIn: 'root'  // Permet d’injecter ce service partout (singleton)
+  providedIn: 'root'
 })
+
 export class ContactService {
-  // Signal pour stocker la liste des contacts
   private contactsSignal = signal<ContactCommun[]>([]);
+  private readonly apiUrl = 'http://localhost:3000/contacts'; 
+  constructor(private http: HttpClient) {}
 
-  // Expose le signal en lecture seule pour éviter des modifications extérieures directes
+
   get contacts() {
-    return this.contactsSignal.asReadonly();
+    return this.contactsSignal.asReadonly(); 
   }
-
-  // Ajouter un contact dans la liste
   ajouter(contact: ContactCommun) {
-    this.contactsSignal.update(contacts => [...contacts, contact]);
+    const contacts = this.contactsSignal();
+    const newId = contacts.length > 0 ? Math.max(...contacts.map(c => c.id)) + 1 : 1;
+    const newContact = { ...contact, id: newId };
+    this.contactsSignal.update(contacts => [...contacts, newContact]);
   }
 
-  // Récupérer un contact par son ID
+  chargerContacts() {
+    this.http.get<ContactCommun[]>(this.apiUrl).subscribe({
+      next: (data) => this.contactsSignal.set(data),
+      error: (err) => console.error('Erreur lors du chargement des contacts :', err)
+    });
+  }
   getContactById(id: number): ContactCommun | undefined {
     return this.contactsSignal().find(contact => contact.id === id);
   }
-
-  // Filtrer les contacts par type "Client"
   getClients(): ContactCommun[] {
     return this.contactsSignal().filter(c => c.typeDeContact === 'Client');
   }
 
-  // Filtrer les contacts par type "Fournisseur"
   getFournisseurs(): ContactCommun[] {
     return this.contactsSignal().filter(c => c.typeDeContact === 'Fournisseur');
   }
 }
+  
