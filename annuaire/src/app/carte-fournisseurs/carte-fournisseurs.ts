@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './carte-fournisseurs.css'
 })
 export class CarteFournisseurs {
+  id: number = 2;
   nom: string = 'Sophie Martin';
   poste: string = 'Responsable Commerciale';
   description: string = 'Fournisseur partenaire depuis 2022 chez FitPro Équipements, spécialisé dans les équipements de sport.';
