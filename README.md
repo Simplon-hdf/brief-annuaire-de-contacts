@@ -14,8 +14,9 @@ The application provides:
 - Displaying detailed information for each contact
 - Visual differentiation between clients and suppliers
 - Displaying contacts as cards containing key information and a photo
-- 
+
 ## Features
+
 - Development using Angular with components and services
 - Simulated data using variables or JSON file
 - Dynamic and responsive display
@@ -29,26 +30,26 @@ The application provides:
 
 - TypeScript
 
-- HTML 
+- HTML
 
 ## Installation and Usage
+
 ### Prerequisites
+
 Node.js
 
 Angular CLI
 
 Installation
 
-
 ## bash
+
 Copier
 Modifier
 git clone <REPO-URL>
 cd annuaire
 npm install
 ng serve
-
-
 
 # brief-annuaire-de-contacts
 
@@ -66,8 +67,9 @@ The application provides:
 - Displaying detailed information for each contact
 - Visual differentiation between clients and suppliers
 - Displaying contacts as cards containing key information and a photo
-- 
+
 ## Features
+
 - Development using Angular with components and services
 - Simulated data using variables or JSON file
 - Dynamic and responsive display
@@ -76,18 +78,19 @@ The application provides:
 - Real-time search
 
 ## User Search and Contact Management
+
 The user can search for individuals using the search bar by entering either a first name or a last name. Additionally, they have the option to filter the results by category, allowing them to view only clients or only suppliers. Furthermore, there is a contact addition form that enables the user to add a new contact to the system.
 
-  
 ## Technologies
 
 - Angular
 
 - TypeScript
 
-- HTML 
+- HTML
 
 ## Installation and Usage
+
 ### Prerequisites
 Node.js
 
@@ -95,8 +98,8 @@ Angular CLI
 
 Installation
 
-
 ## bash
+
 Copier
 Modifier
 git clone <REPO-URL>
@@ -120,12 +123,5 @@ Here are the main colors used in the interface:
 
 ### Visual Example
 
-Here is a screenshotof the colors :
-
-![Contact directory color coding screenshot](./assets/palette-de-couleur.webp)
-
-
-
-
-
-
+Here is a screenshot of the colors :
+![Palette de couleurs](annuaire/public/palette-de-couleurs.png)
