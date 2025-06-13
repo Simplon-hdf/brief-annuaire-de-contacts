@@ -137,3 +137,35 @@ export class BarreDeRecherche {
       }
       
       
+      if (nomA.length !== nomB.length) return nomA.length - nomB.length;
+      
+     
+      return nomA.localeCompare(nomB);
+    });
+
+    this.resultatsAffiches = resultats;
+    this.afficherResultats = true;
+  }
+
+  
+  selectionnerResultat(contact: any): void {
+    this.elementDeRecherche = contact.nom;
+    this.afficherResultats = false;
+  }
+
+  
+  commencerRecherche(): void {
+    console.log('Recherche déclenchée');
+    console.log('Terme :', this.elementDeRecherche);
+    console.log('Type :', this.selectionTypeDeContact);
+    
+    this.rechercherEnTempsReel();
+  }
+
+
+  cacherResultats(): void {
+    setTimeout(() => {
+      this.afficherResultats = false;
+    }, 200);
+  }
+}
