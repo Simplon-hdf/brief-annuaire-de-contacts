@@ -88,3 +88,52 @@ export class BarreDeRecherche {
       this.afficherResultats = false;
       return;
     }
+
+    const termeRecherche = this.elementDeRecherche.toLowerCase();
+
+    
+    let resultats = this.contacts.filter(contact => 
+      contact.nom.toLowerCase().includes(termeRecherche) ||
+      contact.poste.toLowerCase().includes(termeRecherche) ||
+      contact.email.toLowerCase().includes(termeRecherche) ||
+      contact.telephone.includes(termeRecherche)
+    );
+
+    
+    if (this.selectionTypeDeContact !== 'Tous') {
+      resultats = resultats.filter(contact => 
+        contact.type === this.selectionTypeDeContact
+      );
+    }
+
+    
+    resultats.sort((a, b) => {
+      const nomA = a.nom.toLowerCase();
+      const nomB = b.nom.toLowerCase();
+      
+    
+      const exactMatchA = nomA === termeRecherche;
+      const exactMatchB = nomB === termeRecherche;
+      if (exactMatchA && !exactMatchB) return -1;
+      if (!exactMatchA && exactMatchB) return 1;
+      
+      
+      const startsWithA = nomA.startsWith(termeRecherche);
+      const startsWithB = nomB.startsWith(termeRecherche);
+      if (startsWithA && !startsWithB) return -1;
+      if (!startsWithA && startsWithB) return 1;
+      
+      
+      const nomMatchA = nomA.includes(termeRecherche);
+      const nomMatchB = nomB.includes(termeRecherche);
+      if (nomMatchA && !nomMatchB) return -1;
+      if (!nomMatchA && nomMatchB) return 1;
+      
+      
+      const indexA = nomA.indexOf(termeRecherche);
+      const indexB = nomB.indexOf(termeRecherche);
+      if (indexA !== -1 && indexB !== -1 && indexA !== indexB) {
+        return indexA - indexB;
+      }
+      
+      
