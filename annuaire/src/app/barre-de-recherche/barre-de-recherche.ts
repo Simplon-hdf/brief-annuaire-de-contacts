@@ -43,3 +43,48 @@ export class BarreDeRecherche {
       { component: RobertC, type: 'Clients' }
     ];
 
+    
+    const fournisseursComponents = [
+      { component: AichaF, type: 'Fournisseurs' },
+      { component: LouiseF, type: 'Fournisseurs' },
+      { component: MarcF, type: 'Fournisseurs' },
+      { component: PierreF, type: 'Fournisseurs' },
+      { component: SarahF, type: 'Fournisseurs' },
+      { component: ThomasF, type: 'Fournisseurs' }
+    ];
+
+    
+    const cartesGeneriques = [
+      { component: CardClient, type: 'Clients' },
+      { component: CarteFournisseurs, type: 'Fournisseurs' }
+    ];
+
+   
+    [...clientsComponents, ...fournisseursComponents, ...cartesGeneriques].forEach(({ component, type }) => {
+      try {
+        const instance = new component();
+        this.contacts.push({
+          nom: instance.nom || 'Nom non défini',
+          poste: instance.poste || 'Poste non défini',
+          description: instance.description || 'Description non disponible',
+          email: instance.email || 'Email non défini',
+          telephone: instance.telephone || 'Téléphone non défini',
+          photoUrl: instance.photoUrl || '',
+          type: type
+        });
+      } catch (error) {
+        console.warn(`Erreur lors de l'initialisation de ${component.name}:`, error);
+      }
+    });
+  }
+  
+  resultatsAffiches: any[] = [];
+  afficherResultats: boolean = false;
+
+  
+  rechercherEnTempsReel(): void {
+    if (this.elementDeRecherche.trim() === '') {
+      this.resultatsAffiches = [];
+      this.afficherResultats = false;
+      return;
+    }
